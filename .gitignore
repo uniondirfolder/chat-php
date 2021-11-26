@@ -25,3 +25,4 @@ Homestead.json
 ./.idea/
 /chat-php/.idea/
 /.idea/
+/app/nodesource_setup.sh
