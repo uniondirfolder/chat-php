@@ -1,7 +1,7 @@
 name: Snif strict type
 on: [push]
 jobs:
-  lint_psalm_phpinsights_snifer:
+  StrictType:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -27,3 +27,8 @@ jobs:
       - name: Composer Install Dev
         run: |
           composer install
+      - name: Sniffer job
+        run: |
+          composer ./vendor/bin/phpcbf
+          composer check-style
+          composer fix-style
