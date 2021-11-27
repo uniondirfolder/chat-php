@@ -29,6 +29,5 @@ jobs:
           composer install
       - name: Sniffer job
         run: |
-          composer ./vendor/bin/phpcbf
           composer check-style
           composer fix-style
