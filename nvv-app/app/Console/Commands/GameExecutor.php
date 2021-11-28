@@ -51,7 +51,9 @@ class GameExecutor extends Command
      */
     public function handle()
     {
-        while (true) {
+        $counter = 5;
+
+        while ($counter!==0) {
             broadcast(new RemainingTimeChanged($this->time . 's'));
 
             $this->time--;
@@ -64,6 +66,8 @@ class GameExecutor extends Command
 
                 sleep(5);
                 $this->time = self::TIME;
+
+                $counter--;
             }
         }
     }
