@@ -2,6 +2,9 @@
 <ruleset name="name-of-your-project">
     <exclude-pattern>*/vendor/*</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/public/*</exclude-pattern>
+    <exclude-pattern>*/resources/*</exclude-pattern>
+    <exclude-pattern>*/bootstrap/cache/*</exclude-pattern>
     <!-- relative path from PHPCS source location -->
     <config name="installed_paths" value="vendor/slevomat/coding-standard"/>
 
