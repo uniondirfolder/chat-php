@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Events;
 
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -12,23 +13,21 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class UserSessionChanged implements ShouldBroadcast
+class UserDeleted implements ShouldBroadcast
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable, InteractsWithSockets;
 
-    public $message;
+    public $user;
 
-    public $type;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($message, $type)
+    public function __construct(User $user)
     {
-        $this->message = $message;
-        $this->type = $type;
+        $this->user = $user;
     }
 
     /**
@@ -38,6 +37,7 @@ class UserSessionChanged implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('notifications');
+        \Log::debug("Deleted {$this->user->name}");
+        return new Channel('users');
     }
 }
