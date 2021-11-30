@@ -40,6 +40,7 @@ class GreetingSent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
+
         return new PrivateChannel("chat.greet.{$this->user->id}");
     }
 }

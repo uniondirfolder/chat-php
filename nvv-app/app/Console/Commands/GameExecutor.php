@@ -51,7 +51,7 @@ class GameExecutor extends Command
      */
     public function handle()
     {
-        $counter = 5;
+        $counter = 60*24;
 
         while ($counter!==0) {
             broadcast(new RemainingTimeChanged($this->time . 's'));
@@ -64,7 +64,7 @@ class GameExecutor extends Command
                 broadcast(new RemainingTimeChanged($this->time));
                 broadcast(new WinnerNumberGenerated(mt_rand(self::MIN_NUMBER, self::MAX_NUMBER)));
 
-                sleep(5);
+                sleep(60);
                 $this->time = self::TIME;
 
                 $counter--;
