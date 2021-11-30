@@ -22,11 +22,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/chat','App\Http\Controllers\ChatController@showChat')->name('chat.show');
+Route::get('/message/{id}','App\Http\Controllers\HomeController@getMessage')->name('message');
 
 Route::post('/chat/message','App\Http\Controllers\ChatController@messageReceived')->name('chat.message');
-
+Route::post('/chat/greet{user}','App\Http\Controllers\ChatController@greetReceived')->name('chat.greet');
+Route::post('/message','App\Http\Controllers\HomeController@sendMessage');
 Route::view('/users','users.showAll')->name('users.all');
 
 Route::view('/game','game.show')->name('game.show');

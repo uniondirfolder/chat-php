@@ -26,3 +26,4 @@ Homestead.json
 /chat-php/.idea/
 /.idea/
 /app/nodesource_setup.sh
+/nvv-app/.env.copy

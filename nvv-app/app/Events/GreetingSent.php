@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Events;
 
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -12,11 +13,12 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class WinnerNumberGenerated implements ShouldBroadcast
+class GreetingSent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $number;
+    protected $user;
+    public $message;
 
 
     /**
@@ -24,9 +26,11 @@ class WinnerNumberGenerated implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($number)
+    public function __construct(User $user, $message)
     {
-        $this->number = $number;
+        $this->user = $user;
+        $this->message = $message;
+
     }
 
     /**
@@ -36,6 +40,7 @@ class WinnerNumberGenerated implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('game');
+
+        return new PrivateChannel("chat.greet.{$this->user->id}");
     }
 }
