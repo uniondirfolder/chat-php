@@ -62,7 +62,7 @@ class HomeController extends Controller
      */
     public function sendMessage(Request $request)
     {
-
+        \Log::debug("Home-----------------");
         $from = Auth::id();
         $to = $request->receiver_id;
         $message = $request->message;
@@ -76,20 +76,19 @@ class HomeController extends Controller
 
         // pusher
         $options = array(
-            'cluster' => env('PUSHER_APP_CLUSTER'),
-            'useTLS' => true
+            'cluster' => 'eu',
         );
 
         $pusher = new Pusher(
-            env('PUSHER_APP_KEY'),
-            env('PUSHER_APP_SECRET'),
-            env('PUSHER_APP_ID'),
+            'ae9344bdef72cf7e7fe1',
+            '84d26632134cfef20c57',
+            '1306766',
             $options
         );
 
 
-        $data = ['from' => $from, 'to' => $to]; // sending from and to user id when pressed enter
-        $pusher->trigger('nvv-channel', 'nvv-event', $data);
+        $data = ['from' => $from, 'to' => $to];
+        $pusher->trigger('nvv-chanel', 'nvv-event', $data);
     }
 
 }
