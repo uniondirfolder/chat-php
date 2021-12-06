@@ -17,146 +17,146 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @stack('styles')
-<style>
-    /* width */
-    ::-webkit-scrollbar {
-        width: 7px;
-    }
+    <style>
+        /* width */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
 
-    /* Track */
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
 
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        background: #a7a7a7;
-    }
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #a7a7a7;
+        }
 
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        background: #929292;
-    }
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #929292;
+        }
 
-    ul {
-        margin: 0;
-        padding: 0;
-    }
+        ul {
+            margin: 0;
+            padding: 0;
+        }
 
-    li {
-        list-style: none;
-    }
+        li {
+            list-style: none;
+        }
 
-    .user-wrapper, .message-wrapper {
-        border: 1px solid #dddddd;
-        overflow-y: auto;
-    }
+        .user-wrapper, .message-wrapper {
+            border: 1px solid #dddddd;
+            overflow-y: auto;
+        }
 
-    .user-wrapper {
-        height: 600px;
-    }
+        .user-wrapper {
+            height: 600px;
+        }
 
-    .user {
-        cursor: pointer;
-        padding: 5px 0;
-        position: relative;
-    }
+        .user {
+            cursor: pointer;
+            padding: 5px 0;
+            position: relative;
+        }
 
-    .user:hover {
-        background: #eeeeee;
-    }
+        .user:hover {
+            background: #eeeeee;
+        }
 
-    .user:last-child {
-        margin-bottom: 0;
-    }
+        .user:last-child {
+            margin-bottom: 0;
+        }
 
-    .pending {
-        position: absolute;
-        left: 13px;
-        top: 9px;
-        background: #b600ff;
-        margin: 0;
-        border-radius: 50%;
-        width: 18px;
-        height: 18px;
-        line-height: 18px;
-        padding-left: 5px;
-        color: #ffffff;
-        font-size: 12px;
-    }
+        .pending {
+            position: absolute;
+            left: 13px;
+            top: 9px;
+            background: #b600ff;
+            margin: 0;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            padding-left: 5px;
+            color: #ffffff;
+            font-size: 12px;
+        }
 
-    .media-left {
-        margin: 0 10px;
-    }
+        .media-left {
+            margin: 0 10px;
+        }
 
-    .media-left img {
-        width: 64px;
-        border-radius: 64px;
-    }
+        .media-left img {
+            width: 64px;
+            border-radius: 64px;
+        }
 
-    .media-body p {
-        margin: 6px 0;
-    }
+        .media-body p {
+            margin: 6px 0;
+        }
 
-    .message-wrapper {
-        padding: 10px;
-        height: 536px;
-        background: #eeeeee;
-    }
+        .message-wrapper {
+            padding: 10px;
+            height: 536px;
+            background: #eeeeee;
+        }
 
-    .messages .message {
-        margin-bottom: 15px;
-    }
+        .messages .message {
+            margin-bottom: 15px;
+        }
 
-    .messages .message:last-child {
-        margin-bottom: 0;
-    }
+        .messages .message:last-child {
+            margin-bottom: 0;
+        }
 
-    .received, .sent {
-        width: 45%;
-        padding: 3px 10px;
-        border-radius: 10px;
-    }
+        .received, .sent {
+            width: 45%;
+            padding: 3px 10px;
+            border-radius: 10px;
+        }
 
-    .received {
-        background: #ffffff;
-    }
+        .received {
+            background: #ffffff;
+        }
 
-    .sent {
-        background: #3bebff;
-        float: right;
-        text-align: right;
-    }
+        .sent {
+            background: #3bebff;
+            float: right;
+            text-align: right;
+        }
 
-    .message p {
-        margin: 5px 0;
-    }
+        .message p {
+            margin: 5px 0;
+        }
 
-    .date {
-        color: #777777;
-        font-size: 12px;
-    }
+        .date {
+            color: #777777;
+            font-size: 12px;
+        }
 
-    .active {
-        background: #eeeeee;
-    }
+        .active {
+            background: #eeeeee;
+        }
 
-    input[type=text] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 15px 0 0 0;
-        display: inline-block;
-        border-radius: 4px;
-        box-sizing: border-box;
-        outline: none;
-        border: 1px solid #cccccc;
-    }
+        input[type=text] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 15px 0 0 0;
+            display: inline-block;
+            border-radius: 4px;
+            box-sizing: border-box;
+            outline: none;
+            border: 1px solid #cccccc;
+        }
 
-    input[type=text]:focus {
-        border: 1px solid #aaaaaa;
-    }
+        input[type=text]:focus {
+            border: 1px solid #aaaaaa;
+        }
 
-</style>
+    </style>
 </head>
 <body>
 <div id="app">
@@ -164,14 +164,6 @@
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
-            </a><a class="navbar-brand" href="{{ url('/home') }}">
-                main
-            </a>
-            <a class="navbar-brand" href="{{ url('/chat') }}">
-                flood
-            </a>
-            <a class="navbar-brand" href="{{ url('/game') }}">
-                try win
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -226,7 +218,6 @@
     </nav>
 
     <main class="py-4">
-        <div id="notification" class="alert mx-3 invisible"></div>
         @yield('content')
     </main>
 </div>
@@ -247,12 +238,12 @@
             }
         });
 
-        const pusher = new Pusher( 'ae9344bdef72cf7e7fe1', {
+        const pusher = new Pusher('ae9344bdef72cf7e7fe1', {
             cluster: 'eu',
-            forceTLS: true
         });
 
-        let channel = pusher.subscribe('nvv-channel');
+        let channel = pusher.subscribe('nvv-chanel');
+
         channel.bind('nvv-event', function (data) {
 
             if (my_id === data.from) {
@@ -295,8 +286,6 @@
 
         $(document).on('keyup', '.input-text input', function (e) {
             let message = $(this).val();
-
-
             if (e.keyCode === 13 && message !== '' && receiver_id !== '') {
                 $(this).val('');
 
@@ -312,7 +301,16 @@
                     error: function (jqXHR, status, err) {
                     },
                     complete: function () {
-                        scrollToBottomFunc();
+                        $.ajax({
+                            type: "get",
+                            url: "message/" + receiver_id,
+                            data: "",
+                            cache: false,
+                            success: function (data) {
+                                $('#messages').html(data);
+                                scrollToBottomFunc();
+                            }
+                        });
                     }
                 })
             }
@@ -324,6 +322,7 @@
             scrollTop: $('.message-wrapper').get(0).scrollHeight
         }, 50);
     }
+
 </script>
 
 </body>
